@@ -13,9 +13,15 @@
 	<meta content="" name="author"/>
 
 	<link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}" />
+	<link rel="stylesheet" href="{{ asset("assets/stylesheets/datepicker.css") }}" />
+	<link rel="stylesheet" href="{{ asset("assets/stylesheets/bootstrap-select.min.css") }}" />
+	
 </head>
 <body>
 	@yield('body')
 	<script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
+	<script src="{{ asset("assets/scripts/bootstrap-datepicker.js") }}" type="text/javascript"></script>
+	<script src="{{ asset("assets/scripts/bootstrap-select.min.js") }}" type="text/javascript"></script>
 </body>
+	<script type="text/javascript" src="js/demo/evento.js"></script>
 </html>

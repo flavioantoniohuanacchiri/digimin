@@ -76,3 +76,7 @@ Route::get('/documentation', function()
 {
 	return View::make('documentation');
 });
+Route::get('/evento', function()
+{
+	return View::make('demo.evento');
+});
