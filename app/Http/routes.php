@@ -10,12 +10,12 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/logout', 'Auth\AuthController@logout');
+Route::get('/', 'HomeController@index');
 
-Route::get('/', function()
-{
-	return View::make('home');
+Route::group(['middleware' => ['web']], function () {
+
 });
-
 Route::get('/charts', function()
 {
 	return View::make('mcharts');
@@ -68,6 +68,10 @@ Route::get('/blank', function()
 });
 
 Route::get('/login', function()
+{
+	return View::make('login');
+});
+Route::get('/auth/login', function()
 {
 	return View::make('login');
 });
