@@ -10,13 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 Route::get('/logout', 'Auth\AuthController@logout');
 Route::get('/', 'HomeController@index');
 
-Route::group(['middleware' => ['web']], function () {
-
-});
-Route::get('/charts', function()
+/*Route::get('/charts', function()
 {
 	return View::make('mcharts');
 });
@@ -73,14 +71,28 @@ Route::get('/login', function()
 });
 Route::get('/auth/login', function()
 {
-	return View::make('login');
+	return View::make('auth.login');
 });
 
 Route::get('/documentation', function()
 {
 	return View::make('documentation');
-});
+}); */
 Route::get('/evento', function()
 {
 	return View::make('demo.evento');
+});
+// Nos mostrará el formulario de login.
+Route::get('login', 'AuthController@showLogin');
+
+// Validamos los datos de inicio de sesión.
+Route::post('login', 'AuthController@postLogin');
+
+// Nos indica que las rutas que están dentro de él sólo serán mostradas si antes el usuario se ha autenticado.
+Route::group(array('before' => 'auth'), function()
+{
+    // Esta será nuestra ruta de bienvenida.
+    Route::get('/', 'HomeController@index');
+    // Esta ruta nos servirá para cerrar sesión.
+    Route::get('logout', 'AuthController@logOut');
 });

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller {
 
-	/*
+	/*z
 	|--------------------------------------------------------------------------
 	| Registration & Login Controller
 	|--------------------------------------------------------------------------
@@ -29,6 +29,7 @@ class AuthController extends Controller {
 	 */
 	public function __construct(Guard $auth, Registrar $registrar)
 	{
+		dd();
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
